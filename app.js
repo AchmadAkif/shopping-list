@@ -1,13 +1,23 @@
-//Product Constructor
 class Product {
-  constructor(name, price, currentDate) {
+  constructor(name, price) {
     this.name = name;
     this.price = price;
-    this.date = currentDate;
+  }
+
+  // Getter
+  get date() {
+    const date = new Date();
+
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+      
+    // This arrangement can be altered based on how we want the date's format to appear.
+    let currentDate = `${day}-${month}-${year}`;
+    return currentDate;
   }
 }
 
-//UI Constructor
 class UI {
   //Product template
   addProduct(product) {
@@ -46,10 +56,9 @@ class UI {
     const container = document.querySelector(".container");
     const app = document.querySelector("#app");
 
-    //Insert message in the UI
+    //Render message
     container.insertBefore(msg, app);
 
-    //Remove after 1 seconds
     setTimeout(function() {
       document.querySelector(".alert").remove();
     }, 1000);
@@ -61,19 +70,8 @@ document.getElementById("product-form").addEventListener("submit", e => {
   const name = document.getElementById("product-name").value,
     price = document.getElementById("product-price").value
 
-  const date = new Date();
+  const product = new Product(name, price);
 
-  let day = date.getDate();
-  let month = date.getMonth() + 1;
-  let year = date.getFullYear();
-    
-  // This arrangement can be altered based on how we want the date's format to appear.
-  let currentDate = `${day}-${month}-${year}`;
-
-  //Create a new Object Product
-  const product = new Product(name, price, currentDate);
-
-  //Create a new UI
   const ui = new UI();
 
   //Save product
