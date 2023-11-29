@@ -9,7 +9,7 @@ class Product {
     const date = new Date();
 
     let day = date.getDate();
-    let month = date.getMonth() + 1;
+    let month = date.toLocaleString('default', { month: 'short' });
     let year = date.getFullYear();
       
     // This arrangement can be altered based on how we want the date's format to appear.
