@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <!-- Bootswach -->
-  <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css">
+  <link rel="stylesheet" href="./bootstrap.min.css">
 
   <!-- Custom Css -->
   <link rel="stylesheet" href="./master.css">
@@ -22,10 +22,15 @@
 <body>
   
   <!-- Navbar -->
+  <style>
+    .navbar-brand {
+      font-size: 24px;
+    }
+  </style>
+
   <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="/index.html">
-      <img src="./img/shopping_basket.png" width="30" height="30" class="d-inline-block align-top"
-        alt="logo">
+    <a class="navbar-brand" href="./index.html">
+      <img src="./img/shopping_basket.png" width="37" height="37" class="d-inline-block align-top" alt="logo">
       Shopping-App
     </a>
   </nav>
@@ -44,7 +49,7 @@
               <input type="text" id="product-name" placeholder="Product name" class="form-control" required>
             </div>
             <div class="form-group">
-              <input type="number" id="product-price" step="0.01" placeholder="Product price" class="form-control" required>
+              <input type="number" min="0" id="product-price" step="1" placeholder="Product price" class="form-control" required>
             </div>
             <input type="submit" value="Submit" class="btn btn-danger btn-block">
           </form>
