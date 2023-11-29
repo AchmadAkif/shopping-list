@@ -18,7 +18,7 @@ class Product {
   }
 }
 
-class UI {
+class UI extends Product {
   //Product template
   addProduct(product) {
     const productList = document.getElementById("product-list");
@@ -27,7 +27,7 @@ class UI {
       <div class="card text-center mb-4">
         <div class="card-body">
           <h5><strong>${product.name}</strong></h5>
-          <strong >Price</strong>: Rp.${product.price}
+          <strong>Price</strong>: Rp.${product.price}
           <strong class="ml-4">Date Added</strong>: ${product.date} 
           <a href="#" class="btn btn-danger ml-5" name="delete">Delete</a>
         </div>
@@ -42,7 +42,7 @@ class UI {
 
   deleteProduct(element) {
     if (element.name === "delete") {
-      element.parentElement.parentElement.remove();
+      element.parentElement.parentElement.parentElement.remove();
       return true;
     }
   }
@@ -65,7 +65,7 @@ class UI {
   }
 }
 
-//DOM Events
+//Event Listener
 document.getElementById("product-form").addEventListener("submit", e => {
   const name = document.getElementById("product-name").value,
     price = document.getElementById("product-price").value
