@@ -1,6 +1,6 @@
 class Product {
-  constructor(name, price) {
-    this.name = name;
+  constructor(price) {
+    this.name = "";
     this.price = price;
   }
 
@@ -15,6 +15,11 @@ class Product {
     // This arrangement can be altered based on how we want the date's format to appear.
     let currentDate = `${day}-${month}-${year}`;
     return currentDate;
+  }
+
+  // Setter
+  set itemName(setName) {
+    this.name = setName;
   }
 }
 
@@ -70,11 +75,12 @@ document.getElementById("product-form").addEventListener("submit", e => {
   const name = document.getElementById("product-name").value,
     price = document.getElementById("product-price").value
 
-  const product = new Product(name, price);
+  const product = new Product(price);
+  product.name = name;
 
   const ui = new UI();
 
-  //Save product
+  //Add product
   ui.addProduct(product);
   ui.resetForm();
   ui.showMessage("Product added successfully", "success");
@@ -91,4 +97,5 @@ document.getElementById("product-list").addEventListener("click", e => {
   }
   e.preventDefault();
 });
+
 
