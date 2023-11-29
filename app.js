@@ -91,3 +91,4 @@ document.getElementById("product-list").addEventListener("click", e => {
   }
   e.preventDefault();
 });
+
